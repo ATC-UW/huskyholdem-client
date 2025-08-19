@@ -322,6 +322,18 @@ const llmAPI = {
     deleteBatch: async (batch_id: string) => {
         const res = await apiClient.delete(`/llm/batch/${batch_id}`);
         return res.data;
+    },
+    getBatchArenaStatus: async (batch_id: string) => {
+        const res = await apiClient.get(`/llm/batch/${batch_id}/arena-status`);
+        return res.data;
+    },
+    processBatchLeaderboard: async (batch_id: string) => {
+        const res = await apiClient.post(`/llm/process-batch/${batch_id}`);
+        return res.data;
+    },
+    deleteBatchLeaderboard: async (batch_id: string) => {
+        const res = await apiClient.post(`/llm/delete-batch-leaderboard/${batch_id}`);
+        return res.data;
     }
 }
 
